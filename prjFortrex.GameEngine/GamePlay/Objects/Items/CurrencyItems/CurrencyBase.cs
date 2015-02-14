@@ -1,7 +1,6 @@
-﻿using System.ComponentModel;
-using System.Drawing;
+﻿using System.Drawing;
 
-namespace prjFortrex.GameEngine.GamePlay.Entities
+namespace prjFortrex.GameEngine.GamePlay.Objects.Items.CurrencyItems
 {
     abstract class CurrencyBase : ItemBase
     {
@@ -10,7 +9,7 @@ namespace prjFortrex.GameEngine.GamePlay.Entities
         protected CurrencyBase(int x, int y, int value, string name, Image Icon, Image image)
             : base(x, y, name, Icon, image)
         {
-           this.Value = value;
+            this.Value = value;
         }
 
         #endregion
@@ -20,10 +19,5 @@ namespace prjFortrex.GameEngine.GamePlay.Entities
         int Value { get; set; }
 
         #endregion
-
-
-        
-
     }
 }
-

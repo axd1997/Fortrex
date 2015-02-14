@@ -8,9 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using prjFortrex.GameEngine;
-using prjFortrex.GameEngine.GamePlay.Entities;
+using prjFortrex.GameEngine.GamePlay.Logic.Movement;
 using prjFortrex.GameEngine.Network;
-using prjFortrex.GameEngine.GamePlay.Movement;
 
 namespace prjFortrex.Client
 {

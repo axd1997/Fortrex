@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using prjFortrex.GameEngine.GamePlay.Movement;
+using prjFortrex.GameEngine.GamePlay.Logic.Movement;
+using prjFortrex.GameEngine.GamePlay.Objects.Items;
 
-namespace prjFortrex.GameEngine.GamePlay.Entities
+namespace prjFortrex.GameEngine.GamePlay.Objects.Entities
 {
     public interface IMobileEntity
     {
         Point CurrentPosition { get; set; }
 
-        void MoveEntity(Direction EntityDirection);
-        void MoveEntity(Direction EntityDirection, int speed);
+        void MoveEntity(Direction entityDirection);
+        void MoveEntity(Direction entityDirection, int speed);
     }
 
     public abstract class EntityBase : IMobileEntity, IDisposable
@@ -23,34 +24,34 @@ namespace prjFortrex.GameEngine.GamePlay.Entities
 
 
 
-        public virtual void MoveEntity(Direction EntityDirection)
+        public virtual void MoveEntity(Direction entityDirection)
         {
-            MoveEntity(EntityDirection, 20);
+            MoveEntity(entityDirection, 20);
         }
 
-        public virtual void MoveEntity(Direction EntityDirection, int amount)
+        public virtual void MoveEntity(Direction entityDirection, int amount)
         {
-            Point NextPosition;
+            Point nextPosition;
 
-            switch (EntityDirection)
+            switch (entityDirection)
             {
                 case Direction.Up:
-                    NextPosition = new Point(CurrentPosition.X, CurrentPosition.Y - amount);
+                    nextPosition = new Point(CurrentPosition.X, CurrentPosition.Y - amount);
                     break;
                 case Direction.Down:
-                    NextPosition = new Point(CurrentPosition.X, CurrentPosition.Y + amount);
+                    nextPosition = new Point(CurrentPosition.X, CurrentPosition.Y + amount);
                     break;
                 case Direction.Left:
-                    NextPosition = new Point(CurrentPosition.X - amount, CurrentPosition.Y);
+                    nextPosition = new Point(CurrentPosition.X - amount, CurrentPosition.Y);
                     break;
                 case Direction.Right:
-                    NextPosition = new Point(CurrentPosition.X + amount, CurrentPosition.Y);
+                    nextPosition = new Point(CurrentPosition.X + amount, CurrentPosition.Y);
                     break;
                 default:
                     return;
             }
 
-            CurrentPosition = NextPosition;
+            CurrentPosition = nextPosition;
             EntitySize.X = CurrentPosition.X;
             EntitySize.Y = CurrentPosition.Y;
 
@@ -104,7 +105,7 @@ namespace prjFortrex.GameEngine.GamePlay.Entities
         public int CurrencyCount { get; set; }
         
 
-        public List<ItemBase> inventoryList = new List<ItemBase>();
+        public List<ItemBase> InventoryList = new List<ItemBase>();
 
         
 
